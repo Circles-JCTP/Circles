@@ -1,10 +1,21 @@
 const express = require("express");
+const dB = require("./database/database.js");
+const multer = require("multer");
 
 const app = express();
+const upload = multer();
 const PORT = 3000;
 
+app.use(express.json());
+app.use(upload.array());
+
 app.get("/test", (req, res, next) => {
-  console.log("backend reached");
+  console.log(dB);
+});
+
+app.post("/login", (req, res, next) => {
+  const { email, password } = req.body;
+  console.log('email', email, 'pass', password);
 });
 
 //GLOBAL ERROR HANDLING
