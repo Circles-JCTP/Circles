@@ -1,22 +1,23 @@
 const express = require("express");
-const dB = require("./database/database.js");
 const multer = require("multer");
+const dotenv = require("dotenv");
+const loginRouter = require("./routers/loginRouter");
+const oAuthRouter = require("./routers/oAuthRouter");
+const signUpRouter = require("./routers/signUpRouter");
+const cookieParser = require("cookie-parser");
 
 const app = express();
 const upload = multer();
 const PORT = 3000;
 
+app.use(cookieParser());
 app.use(express.json());
 app.use(upload.array());
+dotenv.config();
 
-app.get("/test", (req, res, next) => {
-  console.log(dB);
-});
-
-app.post("/login", (req, res, next) => {
-  const { email, password } = req.body;
-  console.log('email', email, 'pass', password);
-});
+app.use("/login", loginRouter);
+app.use("/login/oauth", oAuthRouter);
+app.use("/signup", signUpRouter);
 
 //GLOBAL ERROR HANDLING
 app.use((err, req, res, next) => {

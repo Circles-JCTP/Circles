@@ -1,13 +1,20 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "./components/Login";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import "../styles.css";
+import Home from "./pages/Home";
+import Error from "./pages/Error";
+import UserPage from "./pages/UserPage";
 
 const App = () => {
   return (
     <>
-      <h1 className="text-5xl font-extrabold dark:text">Circles</h1>
-      <Login></Login>
+      <HashRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/loginerror" element={<Error />} />
+          <Route path="/userpage" element={<UserPage />} />
+        </Routes>
+      </HashRouter>
     </>
   );
 };

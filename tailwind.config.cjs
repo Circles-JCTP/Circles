@@ -5,6 +5,9 @@ module.exports = {
           colors: {
               primary: '#1B73E8',
           },
+          fontFamily: {
+            'montserrat': ['Montserrat', 'sans-serif'],
+          },
       },
   },
   plugins: [],

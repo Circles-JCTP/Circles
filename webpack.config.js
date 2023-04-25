@@ -73,5 +73,10 @@ module.exports = {
   resolve: {
     // Enable importing JS / JSX files without specifying their extension
     extensions: [".js", ".jsx", ".tsx", ".ts"],
+    fallback: {
+        "fs": false,
+        "os": false,
+        "path": false
+    }
   },
 };

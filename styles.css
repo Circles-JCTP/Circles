@@ -3,5 +3,9 @@
 @tailwind utilities;
 
 body {
-    box-sizing: border-box;
+  background-color: #fffffc;
+  background-image: -webkit-linear-gradient(20deg, #1098f7 20%, #fffffc 50%);
+}
+html {
+  height: 100%;
 }
