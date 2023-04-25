@@ -1,7 +1,8 @@
 import React from 'react';
 import AgoraRTM from '../../agora-rtm-sdk-1.5.1.js';
+import env from 'dotenv'
 
-
+env.config()
 
 const PeerToPeer = () => {
   const servers = {
@@ -14,7 +15,7 @@ const PeerToPeer = () => {
       },
     ],
   };
-  let APP_ID = '1d903d5ae27f4db6932d705646dfd936';
+  let APP_ID = process.env.APP_ID;
   console.log('test')
   console.log(APP_ID)
   let token = null;
