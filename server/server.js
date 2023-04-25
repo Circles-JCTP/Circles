@@ -7,6 +7,7 @@ app.get("/test", (req, res, next) => {
   console.log("backend reached");
 });
 
+
 //GLOBAL ERROR HANDLING
 app.use((err, req, res, next) => {
   const defaultErr = {

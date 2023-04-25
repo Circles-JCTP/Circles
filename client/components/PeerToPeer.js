@@ -1,4 +1,7 @@
 import React from 'react';
+import AgoraRTM from '../../agora-rtm-sdk-1.5.1.js';
+
+
 
 const PeerToPeer = () => {
   const servers = {
@@ -11,12 +14,22 @@ const PeerToPeer = () => {
       },
     ],
   };
-
-  let localStream;
-  let remoteStream;
-  let peerConnection;
+  let APP_ID = '1d903d5ae27f4db6932d705646dfd936';
+  console.log('test')
+  console.log(APP_ID)
+  let token = null;
+  let uid = Math.floor(Math.random() * 1000000000);
+  let localStream, remoteStream, peerConnection, client, channel;
 
   const init = async () => {
+    client = AgoraRTM.clientInstance(APP_ID);
+    await client.login({ uid, token });
+    channel - client.createChannel('main');
+    await channel.join();
+    channel.on('MemberJoined', (MemberId) => {
+      console.log('MemberJoined', MemberId);
+    });
+
     localStream = await navigator.mediaDevices.getUserMedia({
       video: true,
       audio: true,
