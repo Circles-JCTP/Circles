@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const loginRouter = require("./routers/loginRouter");
 const oAuthRouter = require("./routers/oAuthRouter");
 const signUpRouter = require("./routers/signUpRouter");
+const logoutRouter = require("./routers/logoutRouter");
 const cookieParser = require("cookie-parser");
 
 const app = express();
@@ -18,6 +19,7 @@ dotenv.config();
 app.use("/login", loginRouter);
 app.use("/login/oauth", oAuthRouter);
 app.use("/signup", signUpRouter);
+app.use("/logout", logoutRouter);
 
 //GLOBAL ERROR HANDLING
 app.use((err, req, res, next) => {

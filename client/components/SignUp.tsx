@@ -1,19 +1,25 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const navigate = useNavigate();
+
   const signUpHandler = (event: any) => {
     event.preventDefault();
     const formData = new FormData(event.target);
     fetch("/signup", {
       method: "POST",
       body: formData,
-    }).then(response => {
-        response.json().then(user => {
-            console.log(user)
-        })
-    }).catch(error => {
-        console.log(error.detail)
-    });
+    })
+      .then((response) => {
+        response.json().then((user) => {
+          console.log(user);
+          navigate("/userpage")
+        });
+      })
+      .catch((error) => {
+        console.log(error.detail);
+      });
   };
   return (
     <div>
