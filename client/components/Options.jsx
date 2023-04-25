@@ -18,8 +18,8 @@ const Options = ( {children} ) => {
                     <button>Copy Your Caller ID</button>
                 </CopyToClipboard>
                 {callAccepted && !callEnded ? (
-                <button variant="contained" color="secondary"  onClick={leaveCall} >Hang Up</button>) : (
-                <button variant="contained" color="primary"  onClick={() => callUser(idToCall)} >Call</button>)}
+                <button variant="contained" color="secondary" onClick={leaveCall} >Hang Up</button>) : (
+                <button variant="contained" color="primary" onClick={() => callUser(idToCall)} >Call</button>)}
             </div>
             {children}
         </>
