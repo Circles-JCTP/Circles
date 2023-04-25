@@ -1,11 +1,12 @@
 import React from "react";
-import Button from "./components/button";
+
+import PeerToPeer from "./components/PeerToPeer";
+import '../global.css';
 
 const App = () => {
   return (
     <>
-      <h1>Home</h1>
-      <Button></Button>
+      <PeerToPeer />
     </>
   );
 };

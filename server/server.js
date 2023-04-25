@@ -7,6 +7,11 @@ app.get("/test", (req, res, next) => {
   console.log("backend reached");
 });
 
+app.use(express.static('public', { 
+  // set MIME type for JavaScript files
+  type: 'application/javascript'
+}));
+
 //GLOBAL ERROR HANDLING
 app.use((err, req, res, next) => {
   const defaultErr = {
