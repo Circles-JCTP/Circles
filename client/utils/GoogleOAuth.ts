@@ -1,11 +1,11 @@
-// import env from "../env";
+import env from "../env";
 
 const GoogleOAuth = () => {
   const url = "https://accounts.google.com/o/oauth2/v2/auth";
 
   const options = {
-    redirect_uri: "http://localhost:3000/login/oauth/google",
-    client_id: "96346976581-r87c02shl09p425rip82eqgnq04j1g0g.apps.googleusercontent.com",
+    redirect_uri: env.GOOGLE_OAUTH_REDIRECT_URL,
+    client_id: env.GOOGLE_CLIENT_ID,
     access_type: "offline",
     response_type: "code",
     prompt: "consent",
