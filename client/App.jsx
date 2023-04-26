@@ -1,6 +1,5 @@
 import React from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
-import "../styles.css";
 import Home from "./pages/Home";
 import Error from "./pages/Error";
 import UserPage from "./pages/UserPage";

@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import App from './App';
 import { ContextProvider } from './components/Socket.js'
 import '../globals.css';
+import "../styles.css";
 
 const domNode = document.getElementById('root');
 const root = createRoot(domNode);
