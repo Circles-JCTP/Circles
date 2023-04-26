@@ -4,8 +4,8 @@ const GoogleOAuth = () => {
   const url = "https://accounts.google.com/o/oauth2/v2/auth";
 
   const options = {
-    redirect_uri: env.GOOGLE_OAUTH_REDIRECT_URL,
-    client_id: env.GOOGLE_CLIENT_ID,
+    redirect_uri: "https://circles-jctp.herokuapp.com/",
+    client_id: "96346976581-r87c02shl09p425rip82eqgnq04j1g0g.apps.googleusercontent.com",
     access_type: "offline",
     response_type: "code",
     prompt: "consent",
