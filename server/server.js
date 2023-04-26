@@ -1,5 +1,14 @@
 const express = require('express');
+const multer = require("multer");
+const dotenv = require("dotenv");
+const loginRouter = require("./routers/loginRouter");
+const oAuthRouter = require("./routers/oAuthRouter");
+const signUpRouter = require("./routers/signUpRouter");
+const logoutRouter = require("./routers/logoutRouter");
+const friendsRouter = require("./routers/friendsRouter");
+const cookieParser = require("cookie-parser");
 const app = express();
+const upload = multer();
 const PORT = 3000;
 const server = require('http').createServer(app);
 const cors = require('cors');
@@ -27,6 +36,17 @@ io.on('connection', (socket) => {
     io.to(data.to).emit('callAccepted', data.signal);
   });
 });
+
+app.use(cookieParser());
+app.use(express.json());
+app.use(upload.array());
+dotenv.config();
+
+app.use("/login", loginRouter);
+app.use("/login/oauth", oAuthRouter);
+app.use("/signup", signUpRouter);
+app.use("/logout", logoutRouter);
+app.use("/friends", friendsRouter);
 
 //GLOBAL ERROR HANDLING
 app.use((err, req, res, next) => {
