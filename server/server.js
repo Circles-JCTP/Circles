@@ -5,6 +5,7 @@ const loginRouter = require("./routers/loginRouter");
 const oAuthRouter = require("./routers/oAuthRouter");
 const signUpRouter = require("./routers/signUpRouter");
 const logoutRouter = require("./routers/logoutRouter");
+const friendsRouter = require("./routers/friendsRouter");
 const cookieParser = require("cookie-parser");
 
 const app = express();
@@ -20,6 +21,7 @@ app.use("/login", loginRouter);
 app.use("/login/oauth", oAuthRouter);
 app.use("/signup", signUpRouter);
 app.use("/logout", logoutRouter);
+app.use("/friends", friendsRouter);
 
 //GLOBAL ERROR HANDLING
 app.use((err, req, res, next) => {

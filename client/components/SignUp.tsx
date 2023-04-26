@@ -12,9 +12,8 @@ const SignUp = () => {
       body: formData,
     })
       .then((response) => {
-        response.json().then((user) => {
-          console.log(user);
-          navigate("/userpage")
+        response.json().then(() => {
+          navigate("/userpage");
         });
       })
       .catch((error) => {

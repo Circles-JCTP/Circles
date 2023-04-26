@@ -13,6 +13,7 @@ router.post("/", async (req, res, next) => {
         if (comparison) {
           console.log("user authenticated");
           res.cookie("name", userInDB.rows[0].name);
+          res.cookie("id", userInDB.rows[0].id);
           res.status(200).json({ userInDB });
         } else {
           console.log("false credentials");

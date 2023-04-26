@@ -34,6 +34,7 @@ router.get("/google", async (req, res, next) => {
       )
         .then((response) => response.json())
         .then((user) => {
+            console.log(user)
           res.cookie("name", user.name);
           res.redirect("http://localhost:8080/#/userpage");
         })

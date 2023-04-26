@@ -17,7 +17,6 @@ const Login = () => {
           .json()
           .then((user) => {
             const { name, email, password } = user.userInDB.rows[0];
-            console.log(name, password, email);
             navigate("/userpage")
           })
           .catch((error) => {
