@@ -14,15 +14,15 @@ const Options = ( {children} ) => {
             <div className = 'OptionsContainer'>
                 <div className='ButtonContainer'>
                     <CopyToClipboard text={me}>
-                        <button>Copy Your Caller ID</button>
+                        <button className='copy'>Copy Your Caller ID</button>
                     </CopyToClipboard>
                     {callAccepted && !callEnded ? (
-                        <button variant="contained" color="secondary" onClick={leaveCall} >Hang Up</button>) : (
+                        <button className='hangup' variant="contained" color="secondary" onClick={leaveCall} >Hang Up</button>) : (
                         <button className = 'call' variant="contained" color="primary" onClick={() => callUser(idToCall)} >Call</button>)}
                 </div>
                 <div className='InputContainer'>
-                    <input type='text' value={name} placeholder='Name' onChange={(e) => setName(e.target.value)} />
-                    <input type='text' value={idToCall} placeholder='ID to Call' onChange={(e) => setIdToCall(e.target.value)} />
+                    <input  className='name' type='text' value={name} placeholder='Name' onChange={(e) => setName(e.target.value)} />
+                    <input className='idtocall' type='text' value={idToCall} placeholder='ID to Call' onChange={(e) => setIdToCall(e.target.value)} />
                 </div>
             </div>  
             {children}
