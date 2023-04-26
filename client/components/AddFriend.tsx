@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import Cookies from "js-cookie";
 
-const AddFriend = () => {
+const AddFriend = ({ onFriendAdded }: any) => {
   const [friendsEmail, setFriendsEmail] = useState("");
   const id = Cookies.get("id");
   const AddFriendHandler = () => {
     fetch(`/friends/add?friendsemail=${friendsEmail}&id=${id}`)
-  }
+      .then(() => {
+        onFriendAdded();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <>
       <input
@@ -17,7 +23,9 @@ const AddFriend = () => {
         placeholder="Friends Email"
         autoComplete="on"
       ></input>
-      <button className="block" onClick={AddFriendHandler}>add friend</button>
+      <button className="block" onClick={AddFriendHandler}>
+        add friend
+      </button>
     </>
   );
 };

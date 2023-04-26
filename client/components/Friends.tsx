@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { Friend } from "../frontEndTypes";
+import AddFriend from "../components/AddFriend";
 
 const Friends = () => {
   const name = Cookies.get("name");
@@ -25,6 +26,9 @@ const Friends = () => {
   useEffect(() => {
     getFriends();
   }, []);
+  const handleFriendAdded = () => {
+    getFriends();
+  };
   return (
     <>
       <h2>Friends List</h2>
@@ -37,6 +41,7 @@ const Friends = () => {
           );
         })}
       </ul>
+      <AddFriend onFriendAdded={handleFriendAdded} />
     </>
   );
 };

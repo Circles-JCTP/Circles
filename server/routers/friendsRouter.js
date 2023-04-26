@@ -14,7 +14,11 @@ router.get("/getlist", (req, res, next) => {
     })
     .catch((error) => {
       console.log(error);
-      return next({});
+      return next({
+        log: "Express error handler caught getfriendslist middleware error",
+        status: 400,
+        message: { err: error },
+      });
     });
 });
 
@@ -22,18 +26,31 @@ router.get("/add", (req, res, next) => {
   const { friendsemail, id } = req.query;
   const queryStr = `SELECT * from USERS u WHERE u.email = '${friendsemail}';`;
   dB.query(queryStr)
-    .then((res) => {
-        if (res.rows[0]){
-            const queryStr = `INSERT INTO friends (user_id, friend_id) VALUES (${id}, ${res.rows[0].id});`
-            dB.query(queryStr).then(res => {
-                console.log(res);
-            }).catch(error => {
-                console.log(error);
-            })
-        }
+    .then((result) => {
+      if (result.rows[0]) {
+        const queryStr = `INSERT INTO friends (user_id, friend_id) VALUES (${id}, ${result.rows[0].id});`;
+        dB.query(queryStr)
+          .then((results) => {
+            console.log(results.rows);
+            res.status(200).json();
+          })
+          .catch((error) => {
+            console.log(error);
+            return next({
+              log: "Express error handler caught addfriend middleware error",
+              status: 400,
+              message: { err: error },
+            });
+          });
+      }
     })
     .catch((error) => {
       console.log(error);
+      return next({
+        log: "Express error handler caught addfriend middleware error",
+        status: 400,
+        message: { err: error },
+      });
     });
 });
 

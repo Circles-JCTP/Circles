@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import Logout from "../components/Logout";
 import Friends from "../components/Friends";
-import AddFriend from "../components/AddFriend";
+
 
 const UserPage = () => {
   const navigate = useNavigate();
@@ -19,7 +19,6 @@ const UserPage = () => {
     <>
       <h2>Logged In!! as {name}</h2>
       <Friends />
-      <AddFriend />
       <Logout />
     </>
   );
