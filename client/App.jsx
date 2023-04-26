@@ -4,9 +4,7 @@ import "../styles.css";
 import Home from "./pages/Home";
 import Error from "./pages/Error";
 import UserPage from "./pages/UserPage";
-import VideoPlayer from "./components/VideoPlayer";
-import Options from "./components/Options";
-import Notifications from "./components/Notifications";
+
 
 
 const App = () => {
@@ -19,11 +17,6 @@ const App = () => {
           <Route path="/userpage" element={<UserPage />} />
         </Routes>
       </HashRouter>
-
-      <VideoPlayer />
-      <Options> 
-        <Notifications />
-      </Options>
     </>
   );
 };

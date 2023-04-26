@@ -3,6 +3,9 @@ import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import Logout from "../components/Logout";
 import Friends from "../components/Friends";
+import VideoPlayer from "../components/VideoPlayer.jsx";
+import Options from "../components/Options.jsx";
+import Notifications from "../components/Notifications";
 
 
 const UserPage = () => {
@@ -20,6 +23,11 @@ const UserPage = () => {
       <h2>Logged In!! as {name}</h2>
       <Friends />
       <Logout />
+
+      <VideoPlayer />
+      <Options> 
+        <Notifications />
+      </Options>
     </>
   );
 };
