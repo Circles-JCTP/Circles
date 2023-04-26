@@ -1,11 +1,21 @@
 import React from "react";
-import Button from "./components/button";
+import { HashRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Error from "./pages/Error";
+import UserPage from "./pages/UserPage";
+
+
 
 const App = () => {
   return (
     <>
-      <h1>Home</h1>
-      <Button></Button>
+      <HashRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/loginerror" element={<Error />} />
+          <Route path="/userpage" element={<UserPage />} />
+        </Routes>
+      </HashRouter>
     </>
   );
 };
