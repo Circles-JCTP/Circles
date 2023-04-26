@@ -10,12 +10,12 @@ const VideoPlayer = () => {
 
     return (
         <>
-            <div className = 'VideBox'>
-                <div>
+            <div className = 'VideosContainer'>
+                <div className='VideoBox'>
                     <a>{name || 'Name'}</a>
                     <video playsInline muted ref = {myVideo} autoPlay style={{ width: '300px' }} className='video1' />
                 </div>
-                <div>
+                <div className='VideoBox'>
                     <a>{call.name || 'Name'}</a>
                     <video playsInline muted ref = {userVideo} autoPlay style={{ width: '300px' }} className='video2' />
                 </div>
