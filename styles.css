@@ -3,9 +3,10 @@
 @tailwind utilities;
 
 body {
-  background-color: #92A8D1;
-  /* background-image: -webkit-linear-gradient(20deg, #1098f7 20%, #fffffc 50%); */
+    background-color: #fffffc;
+    background-image: -webkit-linear-gradient(20deg, #1098f7 20%, #fffffc 50%);
 }
+
 html {
   height: 100vw;
 }
